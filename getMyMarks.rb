@@ -4,11 +4,12 @@ require "uri"
 require "open-uri"
 require 'io/console'
 
-require "./web_get.rb"
-require "./deal_with_html.rb"
-require "./choose_who.rb"
-require "./write_name_in_cache.rb"
+require "./res/web_get.rb"
+require "./res/deal_with_html.rb"
+require "./res/choose_who.rb"
+require "./res/write_name_in_cache.rb"
 
+File.delete("html_file") if File.exist?("html_file")
 
 dict = choose_who
 
