@@ -34,10 +34,19 @@ def deal_with_html()
 			arr.push(marks[i])
 			i += 1
 		end
+    if marks[i].match(/任选/)
+      arr.push(marks[i])
+      if marks[i+1].match(/合格/)
+        arr.push("合格")
+      else
+        arr.push("none")
+      end
+      i=i+1
+    end
 	end
 
-	#p arr
-	#put out title
+	#puts arr
+
 	puts " 课程号 序号       课程名              学分     属性    成绩"
 	puts "----------------------------------------------------------------"
 
@@ -46,7 +55,7 @@ def deal_with_html()
 		2.step(arr.length-1,6) do |xueke|
 			if i == xueke
 				#print "#{arr[i].length} #{arr[i].force_encoding("ascii").length}"
-				if arr[i].force_encoding("ascii").length.to_i < 21
+				if arr[i].force_encoding("ascii").length.to_i < 22
 				arr[i] += "\t"
 				end
 			end
