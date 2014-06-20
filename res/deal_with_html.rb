@@ -26,7 +26,10 @@ def deal_with_html()
       if marks[i+1].match(/[0-9][0-9]/) && marks[i+1].length <3
         arr.push(marks[i+1])
         i=i+2
-      else 
+      elsif marks[i+1].match(/(良好|优秀|中等|及格)/)
+        arr.push(marks[i+1])
+        i=i+2
+      else
         arr.push("none")
         i=i+1
       end
